@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Test .NET regular expressions entirely in your browser. Matches, captures, replacement and split, powered by C# compiled to WebAssembly with NetWasm.">
+  <title>Regex Storm with NetWasm</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+<header>
+  <a class="brand" href="./"><span class="logo">.*</span><span>Regex Storm <small>with NetWasm</small></span></a>
+  <nav aria-label="Project"><a href="https://playground.netwasm.com/" target="_blank" rel="noopener">Try C# in your browser ↗</a><a class="star" href="https://github.com/zion-sati/NetWasm" target="_blank" rel="noopener">★ Star NetWasm</a></nav>
+</header>
+<main>
+  <section class="intro"><p class="eyebrow">THE .NET REGEX ENGINE. ZERO SERVER.</p><h1>Let your regex<br><span>weather the storm.</span></h1><p>Real .NET regular expressions, running entirely in your browser.<br>Your patterns and text stay on your device.</p></section>
+  <section class="tester" aria-label="Regex tester">
+    <div class="section-heading"><h2>Regular expression</h2><div class="actions"><button id="example" type="button">Load example</button><button id="share" type="button">Copy share link</button></div></div>
+    <label class="sr-only" for="pattern">Regular expression</label><textarea id="pattern" rows="2" spellcheck="false" autocapitalize="off" autocomplete="off">(?&lt;word&gt;\b\w+\b)</textarea>
+    <fieldset class="options"><legend>Regex options</legend>
+      <label><input type="checkbox" value="1">Ignore case <code>i</code></label>
+      <label><input type="checkbox" value="2">Multiline <code>m</code></label>
+      <label><input type="checkbox" value="16">Singleline <code>s</code></label>
+      <label><input type="checkbox" value="32">Ignore whitespace <code>x</code></label>
+      <label><input type="checkbox" value="4">Explicit capture <code>n</code></label>
+      <label><input type="checkbox" value="64">Right to left</label>
+      <label><input type="checkbox" value="256">ECMAScript</label>
+    </fieldset>
+    <div class="input-heading"><label for="input">Test text</label><span id="characters"></span></div>
+    <textarea id="input" rows="7" spellcheck="false" placeholder="Paste the text you want to test…">C# belongs in the browser.
+Match words, capture groups, and make something great.</textarea>
+    <div class="toolbar"><div role="tablist" aria-label="Result mode"><button role="tab" id="match-tab" aria-selected="true" data-mode="match">Match</button><button role="tab" id="replace-tab" aria-selected="false" data-mode="replace">Replace</button><button role="tab" id="split-tab" aria-selected="false" data-mode="split">Split</button></div><div class="limits"><label>Start at <input id="start" type="number" min="0" placeholder="Auto" aria-label="Start position"></label><label>Result limit <input id="limit" type="number" min="1" max="1000" value="100" aria-label="Result limit"></label><button id="run" class="primary" type="button">Test regex →</button></div></div>
+    <div id="replacement-field" hidden><label for="replacement">Replacement <span>Use $1 or ${name} for groups</span></label><input id="replacement" value="[${word}]" spellcheck="false"></div>
+    <div class="result-heading"><h2>Results</h2><output id="status" aria-live="polite">Loading .NET regex engine…</output></div>
+    <div id="error" role="alert" hidden></div>
+    <div id="results" aria-live="polite"><p class="muted">Getting ready to test your expression.</p></div>
+    <p class="fine-print">Invariant culture · UTF-16 positions · 1 second regex timeout · Runs in a separate worker</p>
+  </section>
+  <section class="pitch"><div><p class="eyebrow">THIS IS C#. THIS IS WEBASSEMBLY.</p><h2>Your language.<br>A whole new place to run it.</h2><p>This tester uses C# 15 and the .NET regex engine, compiled ahead of time with NetWasm. A static website. No backend. No C# compiler download.</p></div><div class="pitch-links"><a class="primary" href="https://github.com/zion-sati/NetWasm" target="_blank" rel="noopener">★ Follow NetWasm on GitHub →</a><a href="https://playground.netwasm.com/" target="_blank" rel="noopener">Compile your own C# in the Playground ↗</a><a href="https://www.netwasm.com/" target="_blank" rel="noopener">Discover NetWasm ↗</a></div></section>
+</main>
+<footer><span>Inspired by <a href="https://regexstorm.net/" target="_blank" rel="noopener">Will Boyd's Regex Storm</a>. Independent project.</span><span><a href="./licenses/index.html">Licenses</a> · <a href="https://github.com/zion-sati/RegexStorm" target="_blank" rel="noopener">Source code ↗</a></span></footer>
+</body>
+</html>

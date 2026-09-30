@@ -3,29 +3,35 @@
 **C# belongs in the browser. Let's put a .NET regex tester there.**
 
 [★ Star NetWasm](https://github.com/zion-sati/NetWasm) ·
+[Test your regex](https://zion-sati.github.io/RegexStorm/) ·
 [Try the NetWasm Playground](https://playground.netwasm.com/) ·
 [Meet NetWasm](https://www.netwasm.com/)
 
-Regex Storm made testing .NET regular expressions convenient. We're bringing
+Regex Storm made testing .NET regular expressions convenient. We've brought
 that experience entirely into your browser with NetWasm: enter a pattern,
 paste your text, and see the matches without sending either to a server.
 
-**Currently under development.** The browser tester is not live yet. You can
-already try NetWasm's Regex example in the
-[Playground](https://playground.netwasm.com/).
+**[Open Regex Storm with NetWasm →](https://zion-sati.github.io/RegexStorm/)**
+
+- Live match highlighting, named groups and every repeated capture.
+- Replacement previews and split results using .NET regex semantics.
+- Regex options, start positions and bounded results.
+- Shareable links, dark and light themes, and a layout that fits your phone.
+- A separate worker with regex timeouts and recovery for runaway patterns.
 
 ## C# to WebAssembly
 
 [NetWasm](https://github.com/zion-sati/NetWasm) compiles C# ahead of time into
 WebAssembly. For this tester, that means compiling the .NET regex engine and
-the C# application once, then serving the result as a static website.
+the C# 15 application once with the .NET 11 SDK, then serving the result as a static website.
 
 Your regex stays a regex. The application runs the .NET engine, including its
 pattern parser, inside WebAssembly. Editing a pattern won't require compiling
 C# or downloading a compiler.
 
-The result we're building: live match highlighting, group and capture details,
-replacement previews, and split results, all evaluated on your device.
+Tested in Chromium, Firefox and WebKit. Matching uses invariant culture;
+positions use .NET's UTF-16 indexing. Sharing puts your pattern and text in the
+link's fragment, so anyone you give that link to can read them.
 
 ## See what NetWasm can do
 
