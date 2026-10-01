@@ -42,6 +42,18 @@ to build your own application.
 
 **[Star NetWasm to follow the project →](https://github.com/zion-sati/NetWasm)**
 
+## Build and hosting
+
+Run `npm ci` and `npm run build` with the SDK pinned in `global.json`.
+The production build preserves every original `.wasm` and `.bin` file and writes
+a Brotli quality 11 `.br` sidecar for each. Sidecars are decompressed and checked
+against their originals before deployment. `npm run test:build` verifies the
+sidecar generation, and the Pages workflow also runs the browser tests.
+
+The shared [Cloudflare Worker and setup instructions](https://github.com/zion-sati/NetWasm.Playground/blob/main/docs/cloudflare-brotli.md)
+serve these sidecars with standard HTTP content encoding. The application keeps
+its existing Wasm URLs and falls back to ordinary delivery until the Worker is set up.
+
 ## Credits
 
 Inspired by [Regex Storm](https://github.com/lonekorean/regex-storm) by Will Boyd.
