@@ -5,6 +5,13 @@ test.beforeEach(async ({ page }) => {
   await expect(page.locator('#status')).toContainText('matches');
 });
 
+test('page identifies the local .NET regex tester and its canonical URL', async ({ page }) => {
+  await expect(page).toHaveTitle('.NET Regex Tester — Run Locally in Your Browser | Regex Storm');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Regex Storm:.NET Regex Tester.');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://regexstorm.netwasm.com/');
+  await expect(page.getByText('316 KB Brotli-compressed Wasm')).toBeVisible();
+});
+
 test('real .NET captures, highlighting, replacement, split, errors and sharing', async ({ page }) => {
   await page.getByRole('button', { name: 'Load example' }).click();
   await expect(page.locator('#status')).toContainText('2 matches');
