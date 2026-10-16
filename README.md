@@ -25,6 +25,11 @@ paste your text, and see the matches without sending either to a server.
 WebAssembly. For this tester, that means compiling the .NET regex engine and
 the C# 15 application once with the .NET 11 SDK, then serving the result as a static website.
 
+Built with NetWasm 0.8.1 and the 0.8.0 regex library. The four browser-loaded
+Wasm modules total 2,122,086 bytes uncompressed, or 262,500 bytes with Brotli
+quality 11. This excludes JavaScript, HTML, other page assets and the original
+WASI component, which the browser host does not load.
+
 Your regex stays a regex. The application runs the .NET engine, including its
 pattern parser, inside WebAssembly. Editing a pattern won't require compiling
 C# or downloading a compiler.

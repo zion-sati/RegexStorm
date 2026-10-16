@@ -10,9 +10,10 @@ async function evaluate(values) {
     const outcome = await executeNetWasm({
       request: {
         schemaVersion: 1, buildFingerprint: manifest.buildFingerprint, deploymentManifestSha256: digest,
-        arguments: [values.pattern, values.input, values.replacement, String(values.options), String(values.start), String(values.limit), values.mode],
+        // Direct host requests include the WASI program name before Main's arguments.
+        arguments: ['RegexStorm', values.pattern, values.input, values.replacement, String(values.options), String(values.start), String(values.limit), values.mode],
         environment: [], applicationImports: [],
-        grants: { clocks: ['monotonic'], environment: [], preopens: [], network: 'denyAll', randomness: false },
+        grants: { clocks: ['monotonic'], environment: [], preopens: [], network: 'denyAll', randomness: true },
       },
       signal: null,
       stdout: Object.freeze({ write: bytes => chunks.push(bytes) }),
