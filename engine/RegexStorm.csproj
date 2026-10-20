@@ -8,6 +8,6 @@
     <NetWasmOptimization>Oz</NetWasmOptimization>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NetWasm.System.Text.RegularExpressions" Version="0.8.0" />
+    <PackageReference Include="NetWasm.System.Text.RegularExpressions" Version="0.9.0" />
   </ItemGroup>
 </Project>
