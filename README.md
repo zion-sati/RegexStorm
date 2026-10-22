@@ -25,8 +25,8 @@ paste your text, and see the matches without sending either to a server.
 WebAssembly. For this tester, that means compiling the .NET regex engine and
 the C# 15 application once with the .NET 11 SDK, then serving the result as a static website.
 
-Built with NetWasm 0.10.0 and the 0.10.0 regex library. The four browser-loaded
-Wasm modules total 2,107,543 bytes uncompressed, or 262,234 bytes with Brotli
+Built with NetWasm 0.10.1 and the 0.10.0 regex library. The four browser-loaded
+Wasm modules total 1,868,698 bytes uncompressed, or 260,489 bytes with Brotli
 quality 11. This excludes JavaScript, HTML, other page assets and the original
 WASI component, which the browser host does not load.
 
